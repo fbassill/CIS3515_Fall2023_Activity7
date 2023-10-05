@@ -26,13 +26,9 @@ class TextSizeActivity : AppCompatActivity() {
             // TODO Step 2: Pass selected value back to activity that launched TextSizeActivity
             adapter = TextSizeAdapter(textSizes){
 
-                Intent(
-                    this@TextSizeActivity, DisplayActivity::class.java
-                ).apply {
-                    putExtra(FONT_SIZE_VAL, it)
-                }
+                setResult(RESULT_OK, Intent().putExtra(FONT_SIZE_VAL, it))
 
-
+                finish()
             }
             layoutManager = LinearLayoutManager(this@TextSizeActivity)
         }
